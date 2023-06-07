@@ -38,8 +38,6 @@ class ProsesPasien implements KontrakPasienPresenter
 				$pasien->setTempat($row['tempat']); //mengisi tempat
 				$pasien->setTl($row['tl']); //mengisi tl
 				$pasien->setGender($row['gender']); //mengisi gender
-
-
 				$this->data[] = $row; //tambahkan data pasien ke dalam list
 			}
 			//tutup koneksi
@@ -49,36 +47,76 @@ class ProsesPasien implements KontrakPasienPresenter
 			echo "wiw error part 2" . $e->getMessage();
 		}
 	}
+
+	function addDataPasien($nik, $nama, $tempat, $tl, $gender, $email, $telp)
+	{
+		$this->tabelpasien->open();
+		$this->tabelpasien->addPasien($nik, $nama, $tempat, $tl, $gender, $email, $telp);
+		$this->tabelpasien->close();
+	}
+
+	function editDataPasien($id, $nik, $nama, $tempat, $tl, $gender, $email, $telp)
+	{
+		$this->tabelpasien->open();
+		$this->tabelpasien->editPasien($id, $nik, $nama, $tempat, $tl, $gender, $email, $telp);
+		$this->tabelpasien->close();
+	}
+
+	function deleteDataPasien($id)
+	{
+		$this->tabelpasien->open();
+		$this->tabelpasien->deletePasien($id);
+		$this->tabelpasien->close();
+	}
+
 	function getId($i)
 	{
 		//mengembalikan id Pasien dengan indeks ke i
 		return $this->data[$i]['id'];
 	}
+
 	function getNik($i)
 	{
 		//mengembalikan nik Pasien dengan indeks ke i
 		return $this->data[$i]['nik'];
 	}
+
 	function getNama($i)
 	{
 		//mengembalikan nama Pasien dengan indeks ke i
 		return $this->data[$i]['nama'];
 	}
+
 	function getTempat($i)
 	{
 		//mengembalikan tempat Pasien dengan indeks ke i
 		return $this->data[$i]['tempat'];
 	}
+
 	function getTl($i)
 	{
 		//mengembalikan tanggal lahir(TL) Pasien dengan indeks ke i
 		return $this->data[$i]['tl'];
 	}
+
 	function getGender($i)
 	{
 		//mengembalikan gender Pasien dengan indeks ke i
 		return $this->data[$i]['gender'];
 	}
+
+	function getEmail($i)
+	{
+		//mengembalikan email Pasien dengan indeks ke i
+		return $this->data[$i]['email'];
+	}
+
+	function getTelp($i)
+	{
+		//mengembalikan telp Pasien dengan indeks ke i
+		return $this->data[$i]['telp'];
+	}
+
 	function getSize()
 	{
 		return sizeof($this->data);
