@@ -14,7 +14,7 @@ class ProsesPasien implements KontrakPasienPresenter
 			$db_host = "localhost"; // host 
 			$db_user = "root"; // user
 			$db_password = ""; // password
-			$db_name = "mvp_01"; // nama basis data
+			$db_name = "db_dpbo_lp11"; // nama basis data
 			$this->tabelpasien = new TabelPasien($db_host, $db_user, $db_password, $db_name); //instansi TabelPasien
 			$this->data = array(); //instansi list untuk data Pasien
 			//data = new ArrayList<Pasien>;//instansi list untuk data Pasien
