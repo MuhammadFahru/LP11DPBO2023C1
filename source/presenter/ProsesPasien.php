@@ -1,6 +1,6 @@
 <?php
 
-include_once("kontrak/KontrakPasien.php");
+include_once("kontrak/KontrakPasienPresenter.php");
 
 class ProsesPasien implements KontrakPasienPresenter
 {
